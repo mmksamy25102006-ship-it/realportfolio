@@ -1,0 +1,1307 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+
+/* glow background effect */
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 220%;
+  top: -50%;
+  left: 20%;
+  background: radial-gradient(circle, rgba(255,0,60,0.15), transparent 100%);
+  animation: glowMove 20s linear infinite;
+}
+
+@keyframes glowMove {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+.hero{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  overflow:hidden;
+  background:#000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  /* background: linear-gradient(to right,#000000,#220000,#3b0000); */
+
+}
+
+/* =====================
+   RED GLOW
+===================== */
+
+.red-glow{
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:radial-gradient(
+    circle,
+    rgba(255,0,0,.25),
+    transparent 70%
+  );
+  filter:blur(100px);
+
+  animation:pulseGlow 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow{
+  50%{
+    transform:scale(1.2);
+  }
+}
+
+/* =====================
+   STARS
+===================== */
+
+.stars{
+  position:absolute;
+  inset:0;
+}
+
+.star{
+  position:absolute;
+  width:2px;
+  height:2px;
+  background:white;
+  border-radius:50%;
+
+  animation:
+    twinkle 3s infinite alternate,
+    moveStar 3s linear infinite alternate;
+}
+
+@keyframes twinkle{
+  from{
+    opacity:.2;
+  }
+  to{
+    opacity:1;
+    box-shadow:0 0 10px white;
+  }
+}
+
+@keyframes moveStar{
+  from{
+    transform:translateY(0);
+  }
+  to{
+    transform:translateY(-80px);
+  }
+}
+
+/* =====================
+   CYBER GRID FLOOR
+===================== */
+
+.cyber-grids{
+  position:absolute;
+  bottom:-30%;
+  left:-50%;
+  width:200%;
+  height:130%;
+
+  background-image:
+  linear-gradient(
+      rgba(255,0,0,.35) 1px,
+      transparent 1px
+  ),
+  linear-gradient(
+      90deg,
+      rgba(255,0,0,.35) 1px,
+      transparent 1px
+  );
+
+  background-size:60px 60px;
+
+  transform:
+    perspective(700px)
+    rotateX(80deg);
+
+  animation:gridMove 8s linear infinite;
+}
+
+@keyframes gridMove{
+
+  from{
+    background-position:0 0;
+  }
+
+  to{
+    background-position:10px 100%;
+  }
+}
+
+/* =====================
+   CONTENT
+===================== */
+
+.hero-content{
+  position:relative;
+  z-index:10;
+  max-width:900px;
+  padding:20px;
+}
+
+.hero-content h3{
+  color:#fff;
+  font-size:3.4rem;
+  margin-bottom:10px;
+
+  animation:slideUp 1s ease;
+}
+
+/* HOLOGRAPHIC NAME */
+
+.hero-content h1{
+
+  font-size:7rem;
+  font-weight:900;
+
+  background:
+  linear-gradient(
+      90deg,
+      #ffffff,
+      #ff3333,
+      #ffffff,
+      #ff3333
+  );
+
+  background-size:300%;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  animation:
+  shine 5s linear infinite,
+  glowName 2s ease-in-out infinite alternate;
+}
+
+@keyframes shine{
+  to{
+    background-position:300%;
+  }
+}
+
+@keyframes glowName{
+
+  from{
+    filter:
+    drop-shadow(0 0 10px red)
+    drop-shadow(0 0 20px rgba(255, 0, 0, 0.411) );
+  }
+
+  to{
+    filter:
+    drop-shadow(0 0 25px red)
+    drop-shadow(0 0 60px red);
+  }
+}
+
+.hero-content h2{
+  color:#ff4040;
+  font-size:2.5rem;
+  margin-top:10px;
+}
+
+.hero-content p{
+  color:#ccc;
+  margin-top:20px;
+  line-height:1.8;
+  font-size:1.5rem;
+}
+
+/* =====================
+   BUTTONS
+===================== */
+
+.hero-buttons{
+  margin-top:35px;
+  display:flex;
+  gap:20px;
+  justify-content:center;
+}
+
+.hero-buttons button{
+
+  padding:15px 35px;
+
+  border:none;
+  cursor:pointer;
+
+  color:#fff;
+  font-weight:500;
+   font-size: 20px;
+  border-radius:10px;
+   background: transparent;
+  border:2px solid #ff1a1a;
+
+  /* background:#ff1a1a; */
+
+  transition:.4s;
+}
+
+.hero-buttons button:last-child{
+  background:transparent;
+  border:2px solid #ff1a1a;
+}
+
+.hero-buttons button:hover{
+  background:
+  linear-gradient(45deg,#ff0000,#ff6666);
+
+  transform:translateY(-6px);
+
+  box-shadow:
+  0 0 4px red,
+  0 0 5px red,
+  0 0 10px red;
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+
+@keyframes slideUp{
+
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* =====================
+   MOBILE
+===================== */
+
+@media(max-width:768px){
+
+.hero-content h1{
+  font-size:4rem;
+}
+
+.hero-content h2{
+  font-size:1.8rem;
+}
+
+.hero-buttons{
+  flex-direction:column;
+  /* font-size: 20px; */
+}
+
+.hero-buttons button{
+  width:100%;
+}
+}
+
+
+
+/* STAR LAYERS */
+.stars,
+.stars2,
+.stars3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-repeat: repeat;
+}
+
+/* Small stars */
+.stars {
+  background-image: radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+    radial-gradient(2px 2px at 80px 10px, #fff, transparent),
+    radial-gradient(1px 1px at 50px 80px, #fff, transparent);
+  background-size: 200px 200px;
+  animation: moveStars 60s linear infinite;
+  opacity: 0.5;
+}
+
+/* Medium stars */
+.stars2 {
+  background-image: radial-gradient(2px 2px at 40px 60px, #fff, transparent),
+    radial-gradient(2px 2px at 120px 20px, #fff, transparent);
+  background-size: 300px 300px;
+  animation: moveStars 100s linear infinite;
+  opacity: 0.3;
+}
+
+/* Bright stars */
+.stars3 {
+  background-image: radial-gradient(3px 3px at 10px 10px, #fff, transparent),
+    radial-gradient(2px 2px at 150px 90px, #fff, transparent);
+  background-size: 400px 400px;
+  animation: moveStars 150s linear infinite;
+  opacity: 0.2;
+}
+
+/* Animation */
+@keyframes moveStars {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-1000px);
+  }
+}
+
+
+
+
+/* Falling stars container */
+.falling-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Star */
+.star {
+  position: absolute;
+  top: -10px;
+  width: 3px;
+  height: 3px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  box-shadow: 0 0 8px white;
+
+  animation: fall linear infinite;
+}
+
+/* Different positions + delays */
+.star:nth-child(1) { left: 10%; animation-duration: 5s; animation-delay: 0s; }
+.star:nth-child(2) { left: 20%; animation-duration: 6s; animation-delay: 1s; }
+.star:nth-child(3) { left: 30%; animation-duration: 4s; animation-delay: 2s; }
+.star:nth-child(4) { left: 40%; animation-duration: 7s; animation-delay: 0.5s; }
+.star:nth-child(5) { left: 50%; animation-duration: 5.5s; animation-delay: 1.5s; }
+.star:nth-child(6) { left: 60%; animation-duration: 6.5s; animation-delay: 2.5s; }
+.star:nth-child(7) { left: 70%; animation-duration: 4.5s; animation-delay: 1s; }
+.star:nth-child(8) { left: 80%; animation-duration: 5s; animation-delay: 3s; }
+.star:nth-child(9) { left: 90%; animation-duration: 6s; animation-delay: 0s; }
+.star:nth-child(10) { left: 15%; animation-duration: 7s; animation-delay: 2s; }
+
+/* extra stars random */
+.star:nth-child(n+11) {
+  left: calc(100% * var(--i, 0.5));
+}
+
+/* Falling animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-10px) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) translateX(-50px);
+    opacity: 0;
+  }
+}
+
+
+
+
+/* ================= DUST PARTICLES ================= */
+.dust {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* create many tiny particles using box-shadow trick */
+.dust::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: transparent;
+
+  box-shadow:
+    10vw 20vh #fff,
+    20vw 80vh #ffaaaa,
+    30vw 40vh #fff,
+    40vw 60vh #ffdddd,
+    50vw 10vh #fff,
+    60vw 70vh #ff8888,
+    70vw 30vh #fff,
+    80vw 90vh #ffbbbb,
+    90vw 50vh #fff;
+
+  animation: dustMove 20s linear infinite;
+  opacity: 0.6;
+}
+
+/* movement */
+@keyframes dustMove {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+
+
+
+
+
+
+
+/* ================= GALAXY GLOW ================= */
+
+/* ================= STARS ================= */
+.stars,
+.stars2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.stars {
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+    radial-gradient(1px 1px at 120px 80px, #fff, transparent),
+    radial-gradient(2px 2px at 200px 150px, #ffdddd, transparent);
+
+  background-size: 300px 300px;
+  animation: moveStars 80s linear infinite;
+  opacity: 0.5;
+}
+
+.stars2 {
+  background-image:
+    radial-gradient(1px 1px at 50px 60px, #fff, transparent),
+    radial-gradient(2px 2px at 180px 100px, #ffaaaa, transparent);
+
+  background-size: 400px 400px;
+  animation: moveStars 120s linear infinite reverse;
+  opacity: 0.3;
+}
+
+@keyframes moveStars {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-1000px); }
+}
+
+/* ================= SHOOTING STARS ================= */
+.shooting-stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.shoot {
+  position: absolute;
+  top: -10px;
+  width: 3px;
+  height: 3px;
+  background: white;
+  box-shadow: 0 0 10px #fff, 0 0 20px #ff3366;
+  border-radius: 50%;
+  animation: shootMove linear infinite;
+}
+
+/* different positions */
+.shoot:nth-child(1) { left: 10%; animation-duration: 6s; animation-delay: 0s; }
+.shoot:nth-child(2) { left: 30%; animation-duration: 7s; animation-delay: 2s; }
+.shoot:nth-child(3) { left: 50%; animation-duration: 5s; animation-delay: 1s; }
+.shoot:nth-child(4) { left: 70%; animation-duration: 8s; animation-delay: 3s; }
+.shoot:nth-child(5) { left: 85%; animation-duration: 6.5s; animation-delay: 1.5s; }
+.shoot:nth-child(6) { left: 60%; animation-duration: 7.5s; animation-delay: 2.5s; }
+
+@keyframes shootMove {
+  0% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-120vw, 120vh);
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   HOLOGRAPHIC SPACE TRAVEL EFFECT
+========================================================= */
+
+.hologram-scanner {
+  position: absolute;
+
+  width: min(90vw, 850px);
+  height: min(75vh, 650px);
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 2;
+  pointer-events: none;
+
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+
+
+/* =========================================================
+   RINGS
+========================================================= */
+
+.scanner-ring {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  border-radius: 50%;
+
+  box-sizing: border-box;
+
+  transform-origin: center center;
+
+  transform-style: preserve-3d;
+}
+
+
+/* =========================================================
+   OUTER RING
+========================================================= */
+
+.ring-1 {
+
+  width: min(75vw, 700px);
+  height: min(75vw, 700px);
+
+  margin-left: calc(min(75vw, 700px) / -2);
+  margin-top: calc(min(75vw, 700px) / -2);
+
+  border: 2px solid rgba(255, 0, 0, 0.35);
+
+  box-shadow:
+    0 0 20px rgba(255, 0, 0, 0.25),
+    0 0 50px rgba(255, 0, 0, 0.08),
+    inset 0 0 20px rgba(255, 0, 0, 0.12);
+
+  animation:
+    spaceRing1 8s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   MIDDLE RING
+========================================================= */
+
+.ring-2 {
+
+  width: min(58vw, 540px);
+  height: min(58vw, 540px);
+
+  margin-left: calc(min(58vw, 540px) / -2);
+  margin-top: calc(min(58vw, 540px) / -2);
+
+  border: 2px dashed rgba(255, 50, 50, 0.5);
+
+  box-shadow:
+    0 0 15px rgba(255, 0, 0, 0.3),
+    inset 0 0 15px rgba(255, 0, 0, 0.08);
+
+  animation:
+    spaceRing2 6s ease-in-out infinite reverse;
+
+}
+
+
+/* =========================================================
+   INNER RING
+========================================================= */
+
+.ring-3 {
+
+  width: min(42vw, 380px);
+  height: min(42vw, 380px);
+
+  margin-left: calc(min(42vw, 380px) / -2);
+  margin-top: calc(min(42vw, 380px) / -2);
+
+  border: 2px solid rgba(255, 100, 100, 0.7);
+
+  box-shadow:
+    0 0 15px red,
+    0 0 35px rgba(255, 0, 0, 0.35),
+    inset 0 0 20px rgba(255, 0, 0, 0.15);
+
+  animation:
+    spaceRing3 4s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   OUTER SPACE TRAVEL
+========================================================= */
+
+@keyframes spaceRing1 {
+
+  0% {
+    transform:
+      translateZ(-150px)
+      scale(0.75);
+
+    opacity: 0.15;
+  }
+
+  50% {
+    transform:
+      translateZ(100px)
+      scale(1);
+
+    opacity: 0.8;
+  }
+
+  100% {
+    transform:
+      translateZ(-150px)
+      scale(0.75);
+
+    opacity: 0.15;
+  }
+
+}
+
+
+/* =========================================================
+   MIDDLE SPACE TRAVEL
+========================================================= */
+
+@keyframes spaceRing2 {
+
+  0% {
+    transform:
+      translateZ(100px)
+      scale(1);
+
+    opacity: 0.8;
+  }
+
+  50% {
+    transform:
+      translateZ(-120px)
+      scale(0.65);
+
+    opacity: 0.2;
+  }
+
+  100% {
+    transform:
+      translateZ(100px)
+      scale(1);
+
+    opacity: 0.8;
+  }
+
+}
+
+
+/* =========================================================
+   INNER SPACE TRAVEL
+========================================================= */
+
+@keyframes spaceRing3 {
+
+  0% {
+    transform:
+      translateZ(-100px)
+      scale(0.6);
+
+    opacity: 0.25;
+  }
+
+  50% {
+    transform:
+      translateZ(120px)
+      scale(1);
+
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateZ(-100px)
+      scale(0.6);
+
+    opacity: 0.25;
+  }
+
+}
+
+
+/* =========================================================
+   BIG CORE
+========================================================= */
+
+.scanner-core {
+
+  position: absolute;
+
+  width: min(28vw, 240px);
+  height: min(28vw, 240px);
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+
+      rgba(255, 255, 255, 0.9) 0%,
+
+      rgba(255, 0, 0, 0.75) 8%,
+
+      rgba(255, 0, 0, 0.4) 25%,
+
+      rgba(255, 0, 0, 0.15) 45%,
+
+      transparent 72%
+    );
+
+  box-shadow:
+
+    0 0 30px rgba(255, 0, 0, 0.8),
+
+    0 0 70px rgba(255, 0, 0, 0.55),
+
+    0 0 140px rgba(255, 0, 0, 0.3);
+
+  animation:
+    coreSpacePulse 3s ease-in-out infinite;
+
+}
+
+
+/* =========================================================
+   CORE PULSE
+========================================================= */
+
+@keyframes coreSpacePulse {
+
+  0% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.8);
+
+    opacity: 0.55;
+
+  }
+
+  50% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.15);
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.8);
+
+    opacity: 0.55;
+
+  }
+
+}
+
+
+/* =========================================================
+   CORE PARTICLES
+========================================================= */
+
+.scanner-core span {
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  left: 50%;
+  top: 50%;
+
+  background: #fff;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 10px red,
+    0 0 20px red;
+
+}
+
+
+/* =========================================================
+   ORBIT PARTICLES
+========================================================= */
+
+.scanner-core span:nth-child(1) {
+
+  animation:
+    orbit1 3s linear infinite;
+
+}
+
+.scanner-core span:nth-child(2) {
+
+  animation:
+    orbit2 4s linear infinite;
+
+}
+
+.scanner-core span:nth-child(3) {
+
+  animation:
+    orbit3 5s linear infinite;
+
+}
+
+.scanner-core span:nth-child(4) {
+
+  animation:
+    orbit4 6s linear infinite;
+
+}
+
+
+@keyframes orbit1 {
+
+  from {
+    transform:
+      rotate(0deg)
+      translateX(45px);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(45px);
+  }
+
+}
+
+
+@keyframes orbit2 {
+
+  from {
+    transform:
+      rotate(90deg)
+      translateX(55px);
+  }
+
+  to {
+    transform:
+      rotate(450deg)
+      translateX(55px);
+  }
+
+}
+
+
+@keyframes orbit3 {
+
+  from {
+    transform:
+      rotate(180deg)
+      translateX(35px);
+  }
+
+  to {
+    transform:
+      rotate(540deg)
+      translateX(35px);
+  }
+
+}
+
+
+@keyframes orbit4 {
+
+  from {
+    transform:
+      rotate(270deg)
+      translateX(60px);
+  }
+
+  to {
+    transform:
+      rotate(630deg)
+      translateX(60px);
+  }
+
+}
+
+
+/* =========================================================
+   SPACE PARTICLES
+========================================================= */
+
+.hologram-scanner::before {
+
+  content: "";
+
+  position: absolute;
+
+  width: 5px;
+  height: 5px;
+
+  left: 50%;
+  top: 50%;
+
+  background: white;
+
+  border-radius: 50%;
+
+  box-shadow:
+
+    0 -220px 0 rgba(255, 255, 255, 0.7),
+
+    160px -150px 0 rgba(255, 100, 100, 0.8),
+
+    -180px -100px 0 rgba(255, 255, 255, 0.7),
+
+    220px 70px 0 rgba(255, 80, 80, 0.8),
+
+    -220px 100px 0 rgba(255, 255, 255, 0.6),
+
+    140px 190px 0 rgba(255, 100, 100, 0.7),
+
+    -140px 200px 0 rgba(255, 255, 255, 0.7);
+
+  animation:
+    spaceParticles 5s linear infinite;
+
+}
+
+
+@keyframes spaceParticles {
+
+  0% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.4);
+
+    opacity: 0;
+
+  }
+
+  50% {
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.5);
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   SCANNING BEAM
+========================================================= */
+
+.hologram-scanner::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: min(80vw, 700px);
+  height: 2px;
+
+  left: 50%;
+  top: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  background:
+    linear-gradient(
+      90deg,
+
+      transparent,
+
+      rgba(255, 0, 0, 0.15),
+
+      rgba(255, 0, 0, 0.8),
+
+      #fff,
+
+      rgba(255, 0, 0, 0.8),
+
+      rgba(255, 0, 0, 0.15),
+
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px red,
+    0 0 25px red;
+
+  animation:
+    beamTravel 3s ease-in-out infinite;
+
+}
+
+
+@keyframes beamTravel {
+
+  0% {
+
+    transform:
+      translate(-50%, -220px)
+      scaleX(0.3);
+
+    opacity: 0;
+
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  50% {
+
+    transform:
+      translate(-50%, 0)
+      scaleX(1);
+
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+
+    transform:
+      translate(-50%, 220px)
+      scaleX(0.3);
+
+    opacity: 0;
+
+  }
+
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background: #000;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.hero-content {
+
+  position: relative;
+
+  z-index: 10;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .hologram-scanner {
+
+    width: 90vw;
+    height: 60vh;
+
+  }
+
+  .ring-1 {
+
+    width: 65vw;
+    height: 65vw;
+
+    margin-left: -32.5vw;
+    margin-top: -32.5vw;
+
+  }
+
+  .ring-2 {
+
+    width: 50vw;
+    height: 50vw;
+
+    margin-left: -25vw;
+    margin-top: -25vw;
+
+  }
+
+  .ring-3 {
+
+    width: 35vw;
+    height: 35vw;
+
+    margin-left: -17.5vw;
+    margin-top: -17.5vw;
+
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .hologram-scanner {
+
+    width: 100vw;
+    height: 60vh;
+
+  }
+
+  .ring-1 {
+
+    width: 75vw;
+    height: 75vw;
+
+    margin-left: -37.5vw;
+    margin-top: -37.5vw;
+
+  }
+
+  .ring-2 {
+
+    width: 55vw;
+    height: 55vw;
+
+    margin-left: -27.5vw;
+    margin-top: -27.5vw;
+
+  }
+
+  .ring-3 {
+
+    width: 38vw;
+    height: 38vw;
+
+    margin-left: -19vw;
+    margin-top: -19vw;
+
+  }
+
+  .scanner-core {
+
+    width: 28vw;
+    height: 28vw;
+
+  }
+
+  .hologram-scanner::after {
+
+    width: 80vw;
+
+  }
+
+}
