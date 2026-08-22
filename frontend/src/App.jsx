@@ -42,7 +42,7 @@ function Portfolio() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/realportfolio">
       <Routes>
         {/* Public portfolio */}
         <Route path="/" element={<Portfolio />} />

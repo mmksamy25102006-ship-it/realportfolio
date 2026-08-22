@@ -41,7 +41,7 @@ export default function Intro({ onFinish }) {
           ${zoomOut ? "zoom-out" : ""}
         `}
       >
-        <img src="/portfolioimage1.png" alt="profile" />
+        <img src="portfolioimage1.png" alt="profile" />
       </div>
 
     </div>
