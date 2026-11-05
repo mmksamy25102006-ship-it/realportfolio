@@ -17,6 +17,13 @@ const register = async (req, res) => {
       return res.status(400).json({ message: "All fields are required" });
     }
 
+    const userCount = await User.countDocuments();
+    if (userCount > 0) {
+      return res
+        .status(403)
+        .json({ message: "Registration is closed. An admin already exists." });
+    }
+
     const userExists = await User.findOne({ email });
     if (userExists) {
       return res.status(400).json({ message: "User already exists" });
