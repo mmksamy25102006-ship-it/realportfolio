@@ -21,8 +21,12 @@ export default function AdminLogin() {
     setLoading(true);
     setError("");
 
+    const data = new FormData(e.currentTarget);
+    const email = String(data.get("email") ?? form.email).trim();
+    const password = String(data.get("password") ?? form.password);
+
     try {
-      await login(form.email, form.password);
+      await login(email, password);
       navigate("/admin/dashboard");
     } catch (err) {
       setError(err.response?.data?.message || "Login failed. Check credentials.");

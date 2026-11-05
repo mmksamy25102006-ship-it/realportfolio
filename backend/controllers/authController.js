@@ -11,7 +11,9 @@ const generateToken = (id) => {
 // @access  Public (but use this only once to create your admin account)
 const register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const name = String(req.body.name || "").trim();
+    const email = String(req.body.email || "").trim().toLowerCase();
+    const password = req.body.password;
 
     if (!name || !email || !password) {
       return res.status(400).json({ message: "All fields are required" });
@@ -47,7 +49,8 @@ const register = async (req, res) => {
 // @access  Public
 const login = async (req, res) => {
   try {
-    const { email, password } = req.body;
+    const email = String(req.body.email || "").trim().toLowerCase();
+    const password = String(req.body.password || "");
 
     if (!email || !password) {
       return res.status(400).json({ message: "Email and password are required" });
