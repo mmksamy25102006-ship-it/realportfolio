@@ -9,7 +9,17 @@
       name="description"
       content="Personal portfolio showcasing my projects, skills, and experience."
     />
-    <script type="module" crossorigin src="/realportfolio/assets/index-DLLBd0nX.js"></script>
+
+    <script>
+      (function () {
+        var redirectPath = sessionStorage.getItem("spa-redirect");
+        if (redirectPath && redirectPath.indexOf("/realportfolio") === 0) {
+          sessionStorage.removeItem("spa-redirect");
+          history.replaceState(null, "", redirectPath);
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/realportfolio/assets/index-Bv958McO.js"></script>
     <link rel="stylesheet" crossorigin href="/realportfolio/assets/index-B_HjFNk-.css">
   </head>
 
