@@ -121,6 +121,7 @@ export default function Contact() {
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
+              autoComplete="name"
               required
             />
             <input
@@ -129,6 +130,7 @@ export default function Contact() {
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="email"
               required
             />
             <input
@@ -137,6 +139,7 @@ export default function Contact() {
               placeholder="Subject"
               value={formData.subject}
               onChange={handleChange}
+              autoComplete="off"
               required
             />
             <textarea
@@ -145,6 +148,7 @@ export default function Contact() {
               placeholder="Your Message"
               value={formData.message}
               onChange={handleChange}
+              autoComplete="off"
               required
             />
 

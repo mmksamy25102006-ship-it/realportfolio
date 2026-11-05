@@ -42,7 +42,10 @@ function Portfolio() {
 
 function App() {
   return (
-    <BrowserRouter basename="/realportfolio">
+    <BrowserRouter
+      basename="/realportfolio"
+      future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+    >
       <Routes>
         {/* Public portfolio */}
         <Route path="/" element={<Portfolio />} />

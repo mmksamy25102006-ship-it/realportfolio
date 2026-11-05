@@ -28,6 +28,7 @@
   width:100%;
   min-height:100vh;
   overflow:hidden;
+margin-top: 100px;
   background:#000;
   display:flex;
   justify-content:center;
@@ -574,6 +575,66 @@
 
 
 /* =========================================================
+   PARTICLE GLOBE
+========================================================= */
+
+.particle-globe {
+  position: absolute;
+
+  left: 10%;
+  top: 40%;
+
+  width: min(65vw, 820px);
+  height: min(55vw, 820px);
+
+  transform: translate(-50%, -50%);
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+.particle-globe::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -8%;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255, 45, 45, 0.12),
+    rgba(255, 0, 0, 0.05) 45%,
+    transparent 70%
+  );
+
+  filter: blur(16px);
+
+  pointer-events: none;
+}
+
+.particle-globe-canvas {
+  position: relative;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: auto;
+
+  touch-action: pan-y;
+
+  cursor: grab;
+}
+
+.particle-globe-canvas:active {
+  cursor: grabbing;
+}
+
+/* =========================================================
    HOLOGRAPHIC SPACE TRAVEL EFFECT
 ========================================================= */
 
@@ -1017,8 +1078,6 @@
 
   left: 50%;
   top: 50%;
-
-  background: white;
 
   border-radius: 50%;
 

@@ -1,4 +1,5 @@
 // import "./Hero.css";
+import ParticleGlobe from "./ParticleGlobe";
 
 export default function Hero() {
   return (
@@ -30,26 +31,7 @@ export default function Hero() {
       <div className="cyber-grids"></div>
 
 <div className="hologram-scanner">
-
-  {/* Outer Space Ring */}
-  <div className="scanner-ring ring-1"></div>
-
-  {/* Middle Space Ring */}
-  <div className="scanner-ring ring-2"></div>
-
-  {/* Inner Space Ring */}
-  <div className="scanner-ring ring-3"></div>
-
-  {/* Glowing Core */}
-  <div className="scanner-core">
-
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </div>
-
+  <ParticleGlobe />
 </div>
 {/* <div className="hologram-scanner"> */}
 

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 
 export default function Navbar() {
-    // const [nearHero, setNearHero] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
      const [nearFooter, setNearFooter] = useState(false);
 
 
@@ -16,7 +16,7 @@ export default function Navbar() {
     
 
 
-      const footer = document.querySelector("Footer");
+      const footer = document.querySelector("footer");
 
       if (footer) {
         const footerTop =
@@ -31,6 +31,8 @@ export default function Navbar() {
 
 
 
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
 
     return () =>
@@ -39,7 +41,7 @@ export default function Navbar() {
 
   
   return (
-    <nav className="navbar"  className={`navbar ${nearFooter ? "hide-border" : "scrolled"}`}>
+    <nav className={`navbar ${scrolled ? "scrolled" : ""} ${nearFooter ? "hide-border" : ""}`}>
       <div className="logo">
         <div>
         <img src="navimg.png" alt="" />
