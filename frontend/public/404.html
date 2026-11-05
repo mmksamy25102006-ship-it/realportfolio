@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Portfolio</title>
+    <script>
+      (function () {
+        sessionStorage.setItem(
+          "spa-redirect",
+          location.pathname + location.search + location.hash
+        );
+        location.replace("/realportfolio/");
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>
