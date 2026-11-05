@@ -5,6 +5,13 @@ const connectDB = require("./config/db");
 
 dotenv.config();
 
+if (!process.env.MONGODB_URI) {
+  console.error(
+    "MONGODB_URI is not set. Add it in the Render dashboard under Environment."
+  );
+  process.exit(1);
+}
+
 // Connect to MongoDB
 connectDB();
 
