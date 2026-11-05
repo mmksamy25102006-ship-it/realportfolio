@@ -41,7 +41,13 @@ export default function Intro({ onFinish }) {
           ${zoomOut ? "zoom-out" : ""}
         `}
       >
-        <img src="portfolioimage1.png" alt="profile" />
+        <img
+          src={`${import.meta.env.BASE_URL}portfolioimage1.jpg`}
+          alt="profile"
+          width="900"
+          height="600"
+          fetchPriority="high"
+        />
       </div>
 
     </div>

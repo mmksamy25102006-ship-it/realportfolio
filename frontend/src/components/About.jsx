@@ -5,7 +5,7 @@ export default function About() {
 
       <div className="about-image">
         <img
-          src="myimg2.png"
+          src={`${import.meta.env.BASE_URL}myimg2.jpg`}
           alt=""
         />
       </div>

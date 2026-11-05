@@ -44,7 +44,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? "scrolled" : ""} ${nearFooter ? "hide-border" : ""}`}>
       <div className="logo">
         <div>
-        <img src="navimg.png" alt="" />
+        <img src={`${import.meta.env.BASE_URL}navimg.png`} alt="" width="128" height="128" />
         </div>
        <h2> Kumar<span>.</span></h2>
       </div>
