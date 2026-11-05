@@ -10,11 +10,17 @@ connectDB();
 
 const app = express();
 
-// CORS — allow frontend origins
+// CORS allow frontend origins
+const clientOrigins = (process.env.CLIENT_URL || "http://localhost:5173")
+  .split(",")
+  .map((origin) => origin.trim())
+  .filter(Boolean);
+
 const allowedOrigins = [
-  process.env.CLIENT_URL || "http://localhost:5173",
+  ...clientOrigins,
   "http://localhost:5173",
   "http://localhost:3000",
+  "https://mmksamy25102006-ship-it.github.io",
 ];
 
 app.use(
